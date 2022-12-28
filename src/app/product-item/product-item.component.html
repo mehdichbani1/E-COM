@@ -1,0 +1,22 @@
+<div class = "productcard">
+
+  <h2>{{p.libele}}</h2>
+  <a routerLink="details/{{p.id}}">
+    <img src = "{{p.imageUrl}}" height="300" width="300"/>
+  </a>
+  <p>Prix: {{p.prix}}dhs</p>
+
+  <div *ngIf = "p.isDisponible; else elseBlock" >
+    <span [ngStyle]="{color: p.getColor()}">{{p.isEnStock()}}</span><br>
+    <button (click)="clickedProduct(p)">
+      Ajouter au panier
+    </button>
+  </div>
+  <ng-template #elseBlock>
+    <span [ngStyle]="{color: p.getColor()}">{{p.isEnStock()}}</span>
+  </ng-template>
+
+
+
+</div>
+

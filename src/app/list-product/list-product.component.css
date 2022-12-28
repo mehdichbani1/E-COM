@@ -1,0 +1,23 @@
+.listp{/* class selector */
+  display:flex;
+  flex-direction: row;
+  font-family: Merriweather;
+}
+
+#intro.first em {/* id selector */
+  color: grey;
+}
+.cursive {
+  font-family: "Blackadder ITC";
+}
+
+.sansserif {
+  font-family: "Amiri Quran";
+}
+
+div{
+  text-align: center;
+
+}
+
+

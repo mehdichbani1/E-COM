@@ -1,0 +1,12 @@
+.listp{/* class selector */
+  display:flex;
+  flex-direction: row;
+  font-family: Florence, cursive;
+}
+div {
+  text-align: center;
+
+}
+.productcard {
+  animation: swing 2s infinite;
+}

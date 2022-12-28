@@ -1,0 +1,47 @@
+<!--
+<div>
+<p>detail-produit works!</p>
+
+  <div class = "productcard" >
+    <h2>{{product.libele}}</h2>
+    <a routerLink="details/{{product.id}}">
+      <img src = "{{product.imageUrl}}" height="300" width="300"/>
+    </a>
+    <p>Prix: {{product.prix}}dhs</p>
+    <div *ngIf = "product.isDisponible; else elseBlock" >
+      <span [ngStyle]="{color: product.getColor()}">{{product.isEnStock()}}</span><br>
+      <button (click)="clickedProduct(product)">
+        Ajouter au panier
+      </button>
+    </div>
+    <ng-template #elseBlock>
+      <span [ngStyle]="{color: product.getColor()}">{{product.isEnStock()}}</span>
+    </ng-template>
+  </div>
+</div>
+
+
+-->
+<div>
+  <p>detail-produit works!</p>
+
+  <div class = "productcard" >
+    <h2>{{product.libele}}</h2>
+    <a routerLink="details/{{product.id}}">
+      <img src = "{{product.imageUrl}}" height="300" width="300"/>
+    </a>
+    <p>Prix: {{product.prix}}dhs</p>
+    <div *ngIf = "product.isDisponible; else elseBlock" >
+      <span [ngStyle]="{color: product.getColor()}">{{product.isEnStock()}}</span><br>
+      <button (click)="clickedProduct(product)">
+        Ajouter au panier
+      </button>
+    </div>
+    <ng-template #elseBlock>
+      <span [ngStyle]="{color: product.getColor()}">{{product.isEnStock()}}</span>
+    </ng-template>
+
+</div>
+
+
+

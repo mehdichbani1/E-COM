@@ -1,0 +1,53 @@
+<p>panier works!</p>
+
+<!--<div class="listp">
+  <style>
+    app-product-item {
+      color: white;
+      background-color : burlywood;
+    }
+  </style>
+  <app-product-item  id = 1 *ngFor="let x of panier" [p] = "x.produit">
+
+  </app-product-item>
+
+</div>-->
+<div class="listp" id="intro">
+  <!--<h1 class="first">
+    this is a <em>test</em>
+  </h1>-->
+  <style>
+    div {
+      color: white;
+      background-color : cadetblue;
+    }
+  </style>
+
+<div class = "productcard" *ngFor="let p of panier" >
+
+  <h2>{{p.produit.libele}}</h2>
+  <a routerLink="details/{{p.produit.id}}">
+    <img src = "{{p.produit.imageUrl}}" height="300" width="300"/>
+  </a>
+  <p>Prix: {{p.produit.prix}}dhs</p>
+
+  <div *ngIf = "p.produit.isDisponible; else elseBlock" >
+    <span [ngStyle]="{color: p.produit.getColor()}">{{p.produit.isEnStock()}}</span><br>
+    <div>
+      <label>quantité du produit:</label>
+      <input type="number" id="qte" #valeur value="{{p.qte}}" min="1">
+
+    </div>
+    <button type="button" (click)="getQte(p)">Enregistrer</button>
+    <button (click)="clickedProduct(p)">
+      Retirer du panier
+    </button>
+  </div>
+  <ng-template #elseBlock>
+    <span [ngStyle]="{color: p.produit.getColor()}">{{p.produit.isEnStock()}}</span>
+
+  </ng-template>
+
+</div>
+
+</div>
