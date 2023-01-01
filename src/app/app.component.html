@@ -12,12 +12,13 @@
 <body>
 <nav>
 
-
 <ul>
   <li><a class="active" href="#" routerLink="produits">Accueil</a></li>
+  <span *ngIf = "isConnected()">
   <li><a href="#" routerLink="panier">Panier</a></li>
+  </span>
   <li><a href="#" routerLink="compte">Compte</a></li>
-  <li><a href="#" routerLink="insc">Inscription</a></li>
+<!--  <li><a href="#" routerLink="insc">Inscription</a></li>-->
 
   <!--<li><a href="#">Services</a></li>
   <li><a href="#">Contact</a></li>

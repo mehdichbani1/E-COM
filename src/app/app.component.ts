@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {SharedvariableService} from "./sharedvariable.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'myapp';
+  constructor(private sharedvariableservice : SharedvariableService) {
+  }
+  isConnected(){
+    if (this.sharedvariableservice.isConnected == 0) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
 }
