@@ -23,8 +23,8 @@ export class PanierComponent {
     alert("le produit "+p.produit.libele+" a été retiré du panier");
   }
   getQte(p:Panier){
-    p.qte = +(document.getElementById(p.qte.toString()) as HTMLInputElement).value;
-    alert("qte: "+p.qte);
+    p.qte = this.valeur.nativeElement.value;
+    alert("qte: "+p.produit.libele+" "+ p.qte);
   }
 
 }
