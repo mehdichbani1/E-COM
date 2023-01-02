@@ -11,6 +11,7 @@ import {Panier} from "../model/Panier";
 export class PanierComponent {
   @ViewChild('valeur') valeur !:ElementRef;
   panier !: Panier[];
+  quantite !:number;
 
   constructor(private panierservice : PanierserviceService) {
   }
@@ -22,9 +23,15 @@ export class PanierComponent {
     const x = this.panier.splice(index, 1);
     alert("le produit "+p.produit.libele+" a été retiré du panier");
   }
-  getQte(p:Panier){
+  /*getQte(p:Panier){
     p.qte = this.valeur.nativeElement.value;
-    alert("qte: "+p.produit.libele+" "+ p.qte);
+    alert("qte: "+p.qte);
+  }*/
+  getQte(p:Panier){
+    p.qte = +(document.getElementById(p.produit.id.toString()) as HTMLInputElement).value;
+    alert("qte: "+p.produit.libele+p.qte);
   }
+
+
 
 }

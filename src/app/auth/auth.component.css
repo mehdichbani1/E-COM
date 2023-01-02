@@ -1,12 +1,14 @@
 form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /*align-items: center;*/
   width: 300px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-family: Merriweather;
+  font-size: 18px;
 }
 
 form label {
@@ -36,4 +38,7 @@ form button {
 
 form button:hover {
   background-color: #45a049;
+}
+#route {
+  align-items: center;
 }

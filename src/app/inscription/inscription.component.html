@@ -1,5 +1,4 @@
 <p>inscription works!</p>
-<div>
 <form action="/signup" method="post">
   <div>
   <label for="name">Name:</label>
@@ -16,6 +15,8 @@
   <input type="password" id="password" name="password">
   </div>
   <br>
-  <button type="submit">Sign Up</button>
+  <button type="submit" (click)="isValid()">Sign Up</button>
+  <div class="container signin">
+    <label id = "route">Already have an account? <a href="#" [routerLink]="['/compte']">Sign in</a>.</label>
+  </div>
 </form>
-</div>
