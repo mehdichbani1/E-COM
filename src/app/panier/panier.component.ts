@@ -2,6 +2,8 @@ import {Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {Product} from "../model/Product";
 import {PanierserviceService} from "../panierservice.service";
 import {Panier} from "../model/Panier";
+import {SharedvariableService} from "../sharedvariable.service";
+import {Compte} from "../model/Compte";
 
 @Component({
   selector: 'app-panier',
@@ -12,11 +14,14 @@ export class PanierComponent {
   @ViewChild('valeur') valeur !:ElementRef;
   panier !: Panier[];
   quantite !:number;
+  compte !:Compte;
 
-  constructor(private panierservice : PanierserviceService) {
+  constructor(private panierservice : PanierserviceService,
+              private sharedvaribleservice: SharedvariableService) {
   }
   ngOnInit():void {
     this.panier = this.panierservice.getAll();
+    this.compte = this.sharedvaribleservice.compte;
   }
   clickedProduct(p:Panier){
     const index = this.panier.indexOf(p);

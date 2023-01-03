@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {SharedvariableService} from "./sharedvariable.service";
 
+import {Product} from "./model/Product";
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

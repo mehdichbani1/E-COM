@@ -1,33 +1,21 @@
-<p>list product works!</p>
+<div>
+<form>
+  <label for="category-select">Filter by Category:</label>
+  <select [(ngModel)]="selectedValue" name="something" id="category-select" (change)="filterProducts(selectedValue)">
+      <option *ngFor="let option of options" [value]="option.value" [selected]="options[1].label">{{ option.label }}</option>
+    </select>
+</form>
+</div>
 <div class="listp" id="intro">
-  <!--<h1 class="first">
-    this is a <em>test</em>
-  </h1>-->
-  <style>
-    app-product-item {
-      color: darkblue;
-      background-color : white;
-      border-block: solid;
-      border-right: solid;
-      border-left: solid;
-      border-left-width: thin;
-      border-right-width: thin;
-      border-color: darkgrey;
-    }
-  </style>
-
-  <app-product-item *ngFor="let p of products" [p] = "p"
-                       (productSelected) = "addToPanier(p)">
+  <app-product-item *ngFor="let p of filteredProducts " [p] = "p"
+                    (productSelected) = "addToPanier(p)">
   </app-product-item>
-
-
-  <!--<app-product-item *ngFor="let p of products3|async" [p] = "p"
+  <!--<app-product-item *ngFor="let p of products3 |async " [p] = "p"
                     (productSelected) = "addToPanier(p)">
   </app-product-item>-->
-  <!--<p class="cursive">
-    this is a paragraph shown in cursive font.
-  </p>-->
 </div>
+<p></p>
+<!--<div *ngFor="let p of products3 | async">BONJOUR{{p.libele}}</div>-->
 
 
 

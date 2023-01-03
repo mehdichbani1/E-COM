@@ -13,5 +13,4 @@ export class ProductItemComponent {
   clickedProduct(p:Product){
     this.productSelected.emit(p);
   }
-
 }

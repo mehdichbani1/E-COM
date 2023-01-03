@@ -1,3 +1,5 @@
+import {Panier} from "./Panier";
+
 export class Compte {
   id : number;
   nom : string;
@@ -6,7 +8,7 @@ export class Compte {
   tel : string
   adr : string;
   isConnected : boolean;
-
+  panier !: Panier[];
 
   constructor(id: number, nom: string, email: string, mdp: string, tel: string, adr: string, isConnected: boolean) {
     this.id = id;
@@ -16,5 +18,6 @@ export class Compte {
     this.tel = tel;
     this.adr = adr;
     this.isConnected = isConnected;
+    // this.panier = panier;
   }
 }

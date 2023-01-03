@@ -11,7 +11,7 @@ import {Panier} from "../model/Panier";
   styleUrls: ['./detail-produit.component.css']
 })
 export class DetailProduitComponent {
-  product!: Product;
+  p!: Product;
   products!: Product[];
 
 
@@ -24,7 +24,7 @@ export class DetailProduitComponent {
   ngOnInit(): void {
     this.products = this.productservice.getAll();
     const id: number = this.route.snapshot.params['id'];
-    this.product = this.getProductById(id);
+    this.p = this.getProductById(id);
 
   }
 

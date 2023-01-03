@@ -4,12 +4,14 @@ export class Product{
   prix:number;
   imageUrl:string;
   isDisponible:boolean;
-  constructor(id:number,libele:string,prix:number,imageUrl:string,isDisponible:boolean){
+  category : string;
+  constructor(id:number,libele:string,prix:number,imageUrl:string,isDisponible:boolean,category : string){
     this.id=id;
     this.libele=libele;
     this.prix=prix;
     this.imageUrl=imageUrl;
     this.isDisponible=isDisponible;
+    this.category = category;
   }
   isEnStock() {
     if (this.isDisponible) {

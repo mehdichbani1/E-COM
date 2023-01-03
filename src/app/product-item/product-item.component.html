@@ -1,10 +1,10 @@
-<div class = "productcard">
-
-  <h2>{{p.libele}}</h2>
+<div class="product-grid">
+<div class = "product-card">
+  <div class="product-name">{{p.libele}}</div>
   <a routerLink="details/{{p.id}}">
     <img src = "{{p.imageUrl}}" height="300" width="300"/>
   </a>
-  <p>Prix: {{p.prix}}dhs</p>
+  <div class="product-price">Prix: {{p.prix}}dhs</div>
 
   <div *ngIf = "p.isDisponible; else elseBlock" >
     <span [ngStyle]="{color: p.getColor()}">{{p.isEnStock()}}</span><br>
@@ -15,5 +15,7 @@
   <ng-template #elseBlock>
     <span [ngStyle]="{color: p.getColor()}">{{p.isEnStock()}}</span>
   </ng-template>
+</div>
+
 </div>
 

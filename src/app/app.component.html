@@ -1,32 +1,14 @@
-<!--<app-list-product></app-list-product>-->
-<!--<ul>
-  <li>
-    <a routerLink="produits">Accueil</a>
-  </li>
-  <li>
-    <a routerLink="panier">
-      panier
-    </a>
-  </li>
-</ul>-->
-<body>
+
 <nav>
-
-
 <ul>
   <li><a class="active" href="#" routerLink="produits">Accueil</a></li>
   <span *ngIf = "isConnected()" >
     <li><a href="#" routerLink="panier">Panier</a></li>
   </span>
   <li><a href="#" routerLink="compte">Compte</a></li>
-<!--  <li><a href="#" routerLink="insc">Inscription</a></li>-->
-
-  <!--<li><a href="#">Services</a></li>
-  <li><a href="#">Contact</a></li>
-  <li><a href="#">Feedback</a></li>-->
 </ul>
 </nav>
-</body>
+<br>
 <router-outlet>
 </router-outlet>
 
