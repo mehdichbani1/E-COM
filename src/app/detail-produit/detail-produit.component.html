@@ -1,26 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card product-card">
+        <div class="card-body">
+          <div class="card-title product-name">{{getProductById().libele}}</div>
+          <a  routerLink="details/{{getProductById().id}}">
+            <img class="card-img-top" src = "{{getProductById().imageUrl}}"/>
+          </a>
+          <div class="card-text product-price">Prix: {{getProductById().prix}}dhs</div>
 
-<div>
-  <p>detail-produit works!</p>
-
-  <div class = "product-card">
-    <div class="product-name">{{p.libele}}</div>
-    <a routerLink="details/{{p.id}}">
-      <img src = "{{p.imageUrl}}" height="300" width="300"/>
-    </a>
-    <div class="product-price">Prix: {{p.prix}}dhs</div>
-
-    <div *ngIf = "p.isDisponible; else elseBlock" >
-      <span [ngStyle]="{color: p.getColor()}">{{p.isEnStock()}}</span><br>
-      <button (click)="clickedProduct(p)">
-        Ajouter au panier
-      </button>
+          <div *ngIf = "getProductById().isDisponible; else elseBlock" >
+            <span [ngStyle]="{color: getProductById().getColor()}" class="text-success">{{getProductById().isEnStock()}}</span><br>
+            <button class="btn btn-primary" (click)="clickedProduct(getProductById())">
+              Ajouter au panier
+            </button>
+          </div>
+          <ng-template #elseBlock>
+            <span [ngStyle]="{color: getProductById().getColor()}" class="text-danger">{{getProductById().isEnStock()}}</span>
+          </ng-template>
+        </div>
+      </div>
     </div>
-    <ng-template #elseBlock>
-      <span [ngStyle]="{color: p.getColor()}">{{p.isEnStock()}}</span>
-    </ng-template>
+    <div class="col-sm-4">
+      <div class="card product-card">
+        <!-- product-card content goes here -->
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card product-card">
+        <!-- product-card content goes here -->
+      </div>
+    </div>
   </div>
-
 </div>
-
-
-

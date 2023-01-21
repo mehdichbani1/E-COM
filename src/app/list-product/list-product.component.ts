@@ -12,6 +12,7 @@ import {RESOURCE_CACHE_PROVIDER} from "@angular/platform-browser-dynamic";
 import {Compte} from "../model/Compte";
 import {CompteserviceService} from "../compteservice.service";
 import {SharedvariableService} from "../sharedvariable.service";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-list-product',
@@ -22,8 +23,16 @@ export class ListProductComponent implements OnInit{
   selectedValue !: string;
   options = [
     { label: 'All', value: 'All' },
-    { label: 'Vehicule', value: 'Vehicule' },
-    { label: 'Option 3', value: 'option3' }
+    { label: 'laptops', value: 'laptops' },
+    { label: 'smartphones', value: 'smartphones'},
+    { label: 'groceries', value: 'groceries' },
+    { label: 'fragrances', value: 'fragrances' },
+    { label: 'furniture', value: 'furniture' },
+    { label: 'tops', value: 'tops' },
+    { label: 'mens-watches', value: 'mens-watches' },
+    { label: 'lighting', value: 'lighting' },
+    { label: 'sunglasses', value: 'sunglasses' },
+
   ];
 
   products!:Product[];
@@ -32,23 +41,32 @@ export class ListProductComponent implements OnInit{
   products3 !: Observable<Product[]>;
   filteredProducts !: Product[];
 
+  allMovies : Product[] | undefined;
+  moviesJson = new ProductserviceService(this.http);
+  getAllMovies=()=>{
+    this.moviesJson.getProd().subscribe(data => {
+      this.allMovies=data.products;
+      console.log(data);
+      console.log(this.allMovies);
+    });
+  }
+
   constructor (private productservice : ProductserviceService,
                private panierservice : PanierserviceService,
                private router : Router,
                private compteservice : CompteserviceService,
-               private sharedvariableservice: SharedvariableService){
+               private sharedvariableservice: SharedvariableService,private http: HttpClient ){
 
   }
-
+  produits !:Observable<Product[]>;
+  prod !: Product[];
   ngOnInit():void {
+    this.sharedvariableservice.category = 'All';
     this.products = this.productservice.getAll();
     this.panier = new Array<Product>;
-    /*this.productservice.getProducts.subscribe((response:DetailsPanier[]) => {
-      this.products2 = response;
-    });*/
-    /*this.products3 = this.productservice.getAllProducts2();
-    this.products2 = this.productservice.getData();*/
+    this.produits = this.productservice.getProducts();
     this.filteredProducts = this.products;
+    this.getAllMovies();
 
   }
 
@@ -71,12 +89,15 @@ export class ListProductComponent implements OnInit{
   //products1 = this.filterByValue(this.products,this.selectedValue);
   filterProducts(event: any) {
     //const category = event.target.value;
-    //console.log(this.selectedValue);
-    if (this.selectedValue == 'All') {
-      this.filteredProducts = this.products;
-    }
-    else {
-      this.filteredProducts = this.filterByValue(this.products,this.selectedValue);
-    }
+    this.sharedvariableservice.category = this.selectedValue;
+    //console.log(this.sharedvariableservice.category);
+  }
+
+  test(){
+    this.productservice.test();
+  }
+  products4 : Product[]=[];
+  getProducts(){
+
   }
 }

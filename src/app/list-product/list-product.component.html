@@ -1,20 +1,22 @@
+
 <div>
 <form>
   <label for="category-select">Filter by Category:</label>
   <select [(ngModel)]="selectedValue" name="something" id="category-select" (change)="filterProducts(selectedValue)">
-      <option *ngFor="let option of options" [value]="option.value" [selected]="options[1].label">{{ option.label }}</option>
+      <option *ngFor="let option of options" [value]="option.value" [selected]="options[0].label">{{ option.label }}</option>
     </select>
 </form>
 </div>
-<div class="listp" id="intro">
-  <app-product-item *ngFor="let p of filteredProducts " [p] = "p"
-                    (productSelected) = "addToPanier(p)">
-  </app-product-item>
-  <!--<app-product-item *ngFor="let p of products3 |async " [p] = "p"
+<div class="listp" id="intro" >
+  <!--<app-product-item *ngFor="let p of produits |async " [p] = "p"
                     (productSelected) = "addToPanier(p)">
   </app-product-item>-->
+  <ul style="display: flex;flex-direction: row;flex-wrap: wrap; justify-content: space-around;background-color: white; padding: 20px; border-radius: 20px;">
+  <app-product-item *ngFor="let p of allMovies " [p] = "p"
+                    (productSelected) = "addToPanier(p)">
+  </app-product-item>
+  </ul>
 </div>
-<p></p>
 <!--<div *ngFor="let p of products3 | async">BONJOUR{{p.libele}}</div>-->
 
 

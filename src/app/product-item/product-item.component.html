@@ -1,21 +1,25 @@
+<ng-template [ngIf] = "cat(p)" [ngIfElse] = "elseBlock">
 <div class="product-grid">
 <div class = "product-card">
-  <div class="product-name">{{p.libele}}</div>
-  <a routerLink="details/{{p.id}}">
-    <img src = "{{p.imageUrl}}" height="300" width="300"/>
-  </a>
-  <div class="product-price">Prix: {{p.prix}}dhs</div>
+    <div class="product-name">{{p.libele}}</div>
+    <a routerLink="details/{{p.id}}">
+      <img src = "{{p.imageUrl}}" height="300" width="300"/>
+    </a>
+    <div class="product-price">Prix: {{p.prix}}dhs</div>
 
-  <div *ngIf = "p.isDisponible; else elseBlock" >
-    <span [ngStyle]="{color: p.getColor()}">{{p.isEnStock()}}</span><br>
-    <button (click)="clickedProduct(p)">
-      Ajouter au panier
-    </button>
+    <div *ngIf = "p.isDisponible; else elseBlock" >
+      <span [ngStyle]="{color: getColor(p)}">{{isEnStock(p)}}</span><br>
+      <button (click)="clickedProduct(p)">
+        Ajouter au panier
+      </button>
+    </div>
+    <ng-template #elseBlock>
+      <span [ngStyle]="{color: getColor(p)}">{{isEnStock(p)}}</span>
+    </ng-template>
   </div>
-  <ng-template #elseBlock>
-    <span [ngStyle]="{color: p.getColor()}">{{p.isEnStock()}}</span>
-  </ng-template>
 </div>
+</ng-template>
 
-</div>
+<ng-template #elseBlock>
+</ng-template>
 

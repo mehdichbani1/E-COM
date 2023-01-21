@@ -70,3 +70,10 @@ select {
   background-size: 20px 20px;
   background-repeat: no-repeat;
 }
+
+.listp {
+  display: grid;
+}
+ng-template {
+  grid-template-columns: repeat(3, 1fr);
+}
